@@ -1,0 +1,17 @@
+<%= simple_form_for @recipe, html: { multipart: true } do |f| %>
+	<% if @recipe.errors.any? %>
+		<div class="errors">
+			<p><%= @recipe.errors.count %> prevented this recipe from saving! </p>
+		</div>
+	<% end %>
+	<ul>
+		<% @recipe.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+	<div class="panel-body">
+		<%= f.input :title, input_html: {class: 'form-control'} %>
+		<%= f.input :description, input_html: {class: 'form-control'} %>
+		<%= f.button :submit, class: 'btn btn-primary' %>
+	</div>
+<% end %>
