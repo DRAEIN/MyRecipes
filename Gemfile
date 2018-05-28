@@ -16,9 +16,12 @@ gem 'coffee-script-source', '1.8.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'simple_form', '~> 3.5'
+gem 'simple_form'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
-
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'cocoon', '~> 1.2', '>= 1.2.9'
+gem 'devise', '~> 4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

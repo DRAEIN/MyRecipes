@@ -1,21 +1,22 @@
 class RecipesController < ApplicationController
 	before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@recipes = Recipe.all.order("created_at DESC")
 	end
 
 	def new
-		@recipe = Recipe.new
+		@recipe = current_user.recipes.build
 	end
 
 	def create
-		@recipe = Recipe.new(recipe_params)
+		@recipe = current_user.recipes.build(recipe_params)
 
 		if @recipe.save
 			redirect_to @recipe, notice: "Successfully created Recipe!"
 		else
-			render new
+			render 'new'
 		end
 	end
 
@@ -46,6 +47,6 @@ class RecipesController < ApplicationController
 	end
 
 	def recipe_params
-		params.require(:recipe).permit(:title, :description)
+		params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
 	end
 end
