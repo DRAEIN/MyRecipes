@@ -19,7 +19,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
-gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem "paperclip", "~> 5.2.1"
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'devise', '~> 4.2'
 gem 'figaro'
